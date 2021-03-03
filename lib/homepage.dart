@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quick_blox_aleph/quickblox/qbAuthentication.dart';
+import 'package:quick_blox_aleph/services/globalProviders.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -35,6 +36,7 @@ class _HomePageState extends State<HomePage> {
             child: Text('Login'),
             onPressed: ()async{
               await QuickBloxAuth().loginUser(loginController.text, passwordController.text);
+              GlobalProviders().dialogProvider.getDialogs();
               Navigator.pushNamed(context, '/dialogsPage');
             },
           )

@@ -100,10 +100,6 @@ class DialogProvider with ChangeNotifier{
     );
   }
 
-  DialogProvider(){
-    getDialogs();
-  }
-
   @override
   void notifyListeners() {
     // TODO: implement notifyListeners
@@ -117,6 +113,7 @@ class DialogProvider with ChangeNotifier{
     // TODO: implement dispose
     isDisposed = true;
     cancelNewMessageSubscription();
+    QuickBloxChat().disconnectFromChatServer();
     super.dispose();
   }
 
